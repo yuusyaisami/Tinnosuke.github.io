@@ -1,7 +1,7 @@
 export const siteConfig = {
-  name: "Ryan Fitzgerald",
+  name: "あばらんち",
   title: "Senior Software Engineer",
-  description: "Portfolio website of Ryan Fitzgerald",
+  description: "Portfolio website of あばらんち",
   accentColor: "#1d4ed8",
   social: {
     email: "your-email@example.com",
