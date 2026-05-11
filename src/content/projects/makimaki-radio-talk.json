@@ -1,0 +1,20 @@
+{
+  "slug": "makimaki-radio-talk",
+  "name": "MakiMaki Radio Talk!",
+  "summary": "二つの選択肢を選びながらステータスを変化させ、ラジオトークの流れそのものを分岐として楽しむゲームです。",
+  "category": "game",
+  "skills": ["Unity", "C#"],
+  "links": {
+    "game": "https://unityroom.com/games/makimakiradiotalk"
+  },
+  "media": {
+    "screenshot": "/Sprite/MakiMakiSprite1.png",
+    "icon": "/Sprite/MakiMakiIcon1.png"
+  },
+  "production": {
+    "start": "2025-08-04",
+    "end": "2025-08-10"
+  },
+  "status": "completed",
+  "featured": true
+}

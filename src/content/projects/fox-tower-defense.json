@@ -1,0 +1,20 @@
+{
+  "slug": "fox-tower-defense",
+  "name": "Fox towerDefense",
+  "summary": "タワーの配置とタイミングで敵の進行を止める、シンプルな判断の積み重ねを重視したタワーディフェンスです。",
+  "category": "game",
+  "skills": ["Unity", "C#"],
+  "links": {
+    "game": "https://unityroom.com/games/foxrtd"
+  },
+  "media": {
+    "screenshot": "/Sprite/FoxTowerDefanceSprite1.png",
+    "icon": "/Sprite/FoxTowerDefanceIcon1.png"
+  },
+  "production": {
+    "start": "2025-03-24",
+    "end": "2025-05-30"
+  },
+  "status": "completed",
+  "featured": false
+}

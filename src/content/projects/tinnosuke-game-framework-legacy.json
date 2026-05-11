@@ -1,0 +1,12 @@
+{
+  "slug": "tinnosuke-game-framework-legacy",
+  "name": "TinnosukeGameFrameworkLegacy",
+  "summary": "Entity 単位の DI コンテナや Inspector ベースの組み立てを備えた Unity 向けフレームワークで、現在は次世代版へ整理を進めています。",
+  "category": "other",
+  "skills": ["Unity", "C#", "UI Toolkit", "Shader"],
+  "links": {},
+  "media": {},
+  "production": {},
+  "status": "in-progress",
+  "featured": false
+}

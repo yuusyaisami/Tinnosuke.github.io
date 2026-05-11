@@ -1,0 +1,20 @@
+{
+  "slug": "syonen-obake",
+  "name": "少年を施設から無事脱出させるゲーム",
+  "summary": "プレイヤーはお化けとなり、危険な施設にいる少年を罠から守りながら安全な脱出へ導くゲームです。",
+  "category": "game",
+  "skills": ["Unity", "C#"],
+  "links": {
+    "game": "https://unityroom.com/games/syonen_sottini_ikuna"
+  },
+  "media": {
+    "screenshot": "/Sprite/SyonenObakeSprite1.png",
+    "icon": "/Sprite/SyonenObakeIcon1.png"
+  },
+  "production": {
+    "start": "2025-08-15",
+    "end": "2025-09-03"
+  },
+  "status": "completed",
+  "featured": true
+}

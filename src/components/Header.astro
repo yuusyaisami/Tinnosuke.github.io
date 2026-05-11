@@ -1,100 +1,42 @@
 ---
+import { siteConfig } from "../config";
+
 const navItems = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
-  { href: "#contact", label: "Contact" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/#games", label: "Games" },
+  { href: "/#other-projects", label: "Other Projects" },
 ];
 ---
 
-<header class="site-header">
-  <div class="site-header__inner">
-    <a class="site-logo" href="/">
-      Tinnosuke's
-      <span>Portfolio!</span>
+<header class="sticky top-0 z-50 border-b border-gray-200/80 bg-white/80 backdrop-blur dark:border-slate-800 dark:bg-slate-950/80">
+  <div class="mx-auto flex min-h-16 w-full max-w-6xl items-center justify-between gap-6 px-4 py-3 sm:px-6 lg:px-8">
+    <a
+      class="min-w-0 text-slate-900 dark:text-slate-50"
+      href="/"
+      aria-label={siteConfig.name}
+    >
+      <span class="block truncate text-lg font-bold tracking-tight">
+        {siteConfig.name}
+      </span>
+      <span class="hidden text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 sm:block dark:text-slate-400">
+        {siteConfig.title}
+      </span>
     </a>
 
-    <nav class="site-nav" aria-label="Main Navigation">
-      <ul>
+    <nav aria-label="Main Navigation">
+      <ul class="flex flex-wrap items-center justify-end gap-x-5 gap-y-2 text-sm font-medium">
         {navItems.map((item) => (
           <li>
-            <a href={item.href}>{item.label}</a>
+            <a
+              class="text-slate-600 transition-colors hover:text-slate-950 dark:text-slate-300 dark:hover:text-white"
+              href={item.href}
+            >
+              {item.label}
+            </a>
           </li>
         ))}
       </ul>
     </nav>
   </div>
 </header>
-
-<style>
-  .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    width: 100%;
-    background: rgba(15, 23, 42, 0.82);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .site-header__inner {
-    width: min(1120px, calc(100% - 32px));
-    height: 72px;
-    margin: 0 auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .site-logo {
-    color: #e5edf7;
-    font-weight: 800;
-    font-size: 18px;
-    text-decoration: none;
-    letter-spacing: -0.02em;
-  }
-
-  .site-logo span {
-    margin-left: 8px;
-    color: #7d8ca3;
-    font-size: 13px;
-    font-weight: 600;
-  }
-
-  .site-nav ul {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .site-nav a {
-    color: #cbd5e1;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-  }
-
-  .site-nav a:hover {
-    color: #60a5fa;
-  }
-
-  @media (max-width: 640px) {
-    .site-header__inner {
-      height: auto;
-      padding: 16px 0;
-      align-items: flex-start;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .site-nav ul {
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-  }
-</style>

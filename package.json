@@ -11,6 +11,11 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
     "astro": "^6.3.1",
+    "remark-gfm": "^4.0.1",
     "tailwindcss": "^4.1.11"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "typescript": "^6.0.3"
   }
 }

@@ -1,10 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
-import About from "../components/About.astro";
 import Projects from "../components/Projects.astro";
-import Experience from "../components/Experience.astro";
-import Education from "../components/Education.astro";
 import Footer from "../components/Footer.astro";
 import { siteConfig } from "../config";
 import "../styles/global.css";
@@ -27,20 +24,17 @@ import "../styles/global.css";
   </head>
   <body>
     <Header />
-    <div class="page-container">
-      <style>
-        .page-container {
-          width: min(1120px, calc(100% - 32px));
-          margin: 0 auto;
-        }
-      </style>
-    <section>
-      <Hero />
-      <About />
+    <Hero />
+    <main class="page-container">
       <Projects />
-      <Experience />
-      <Education />
-    </section>
+    </main>
     <Footer />
   </body>
 </html>
+
+<style>
+  .page-container {
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto;
+  }
+</style>

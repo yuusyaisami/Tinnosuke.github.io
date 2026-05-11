@@ -1,0 +1,17 @@
+{
+  "slug": "simple-shooting-game",
+  "name": "Simple Shooting Game",
+  "summary": "敵を撃ち倒してスコアを伸ばすことに集中した、短時間で遊べるシンプルなシューティングゲームです。",
+  "category": "game",
+  "skills": ["Unity", "C#"],
+  "links": {
+    "game": "https://unityroom.com/games/simpleshootinggame"
+  },
+  "media": {},
+  "production": {
+    "start": "2025-03-24",
+    "end": "2025-05-30"
+  },
+  "status": "completed",
+  "featured": false
+}
