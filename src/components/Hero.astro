@@ -1,6 +1,7 @@
 ---
 import { siteConfig } from "../config";
 import { getGroupedProjects } from "../utils/portfolio";
+import { withBase } from "../utils/url";
 
 type SocialLink = {
   href: string;
@@ -118,7 +119,7 @@ const quickFacts = [
           >
             View Projects
           </a>
-          <a class="inline-flex min-h-11 items-center justify-center rounded-full border border-slate-300 bg-white px-5 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800" href="/about">
+          <a class="inline-flex min-h-11 items-center justify-center rounded-full border border-slate-300 bg-white px-5 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800" href={withBase("/about")}>
             About Page
           </a>
         </div>

@@ -1,6 +1,7 @@
 ---
 import { siteConfig } from "../config";
 import { getGroupedProjects } from "../utils/portfolio";
+import { withBase } from "../utils/url";
 
 const { games, otherProjects } = await getGroupedProjects();
 const hasGames = games.length > 0;
@@ -140,14 +141,14 @@ const hasOtherProjects = otherProjects.length > 0;
       <div class="hidden flex-col gap-4 md:flex md:items-end">
         <nav class="flex gap-x-8">
           <a
-            href="/about"
+            href={withBase("/about")}
             class="text-sm text-gray-600 transition-colors hover:text-gray-800 dark:text-slate-400 dark:hover:text-white"
             >About</a
           >
           {
             hasGames && (
               <a
-                href="/#games"
+                href={withBase("/#games")}
                 class="text-sm text-gray-600 transition-colors hover:text-gray-800 dark:text-slate-400 dark:hover:text-white"
               >
                 Games
@@ -157,7 +158,7 @@ const hasOtherProjects = otherProjects.length > 0;
           {
             hasOtherProjects && (
               <a
-                href="/#other-projects"
+                href={withBase("/#other-projects")}
                 class="text-sm text-gray-600 transition-colors hover:text-gray-800 dark:text-slate-400 dark:hover:text-white"
               >
                 Other Projects

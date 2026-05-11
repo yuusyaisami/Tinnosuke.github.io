@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from "../config";
+import { withBase } from "../utils/url";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -13,7 +14,7 @@ const navItems = [
   <div class="mx-auto flex min-h-16 w-full max-w-6xl items-center justify-between gap-6 px-4 py-3 sm:px-6 lg:px-8">
     <a
       class="min-w-0 text-slate-900 dark:text-slate-50"
-      href="/"
+      href={withBase("/")}
       aria-label={siteConfig.name}
     >
       <span class="block truncate text-lg font-bold tracking-tight">
@@ -30,7 +31,7 @@ const navItems = [
           <li>
             <a
               class="text-slate-600 transition-colors hover:text-slate-950 dark:text-slate-300 dark:hover:text-white"
-              href={item.href}
+              href={withBase(item.href)}
             >
               {item.label}
             </a>
