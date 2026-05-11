@@ -10,22 +10,22 @@ export const siteConfig = {
     github: "https://github.com/RyanFitzgerald",
   },
   aboutMe:
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem quos asperiores nihil consequatur tempore cupiditate architecto natus commodi corrupti quas quasi facere est, dignissimos odit nam veniam sapiente ut, vitae eligendi ipsum dolor, nostrum ullam impedit! Corrupti ratione mollitia temporibus necessitatibus, consectetur reiciendis recusandae id, dolorum quaerat, vero pariatur. Ratione!",
-  skills: ["Javascript", "React", "Node.js", "Python", "AWS", "Docker"],
+    "Unity/C#を用いたゲーム開発を個人で継続的に行っています。現在はゲーム制作と並行して、拡張性・保守性・パフォーマンスを重視したUnity向けゲームフレームワークの開発にも取り組んでいます。特に、アーキテクチャ設計、Editor拡張、Shader・描画表現などに興味があり、UI Toolkitを用いたツール制作や、URP環境での描画・演出表現について学習しています。個人開発では、企画から実装、UI、調整まで一通り担当しており、短期間でのプロトタイプ制作も継続的に行っています。",
+  skills: ["Unity", "C#", "Shader"],
   projects: [
     {
-      name: "AI Dev Roundup Newsletter",
+      name: "MakiMaki Radio Talk!",
       description:
-        "One concise email. Five minutes. Every Tuesday. Essential AI news & trends, production-ready libraries, powerful AI tools, and real-world code examples",
-      link: "https://aidevroundup.com/?ref=devportfolio",
-      skills: ["React", "Node.js", "AWS"],
+        "二つの選択を選択し、ステータスを上げていくゲーム。選択肢の内容は、ラジオトークの内容に沿っており、選択肢を選ぶことで、ラジオトークの内容が変化していきます。",
+      link: "https://unityroom.com/games/makimakiradiotalk",
+      skills: ["Unity", "C#"],
     },
     {
-      name: "Chrome Extension Mastery: Build Full-Stack Extensions with React & Node.js",
+      name: "Fox towerDefense",
       description:
-        "Master the art of building production-ready, full-stack Chrome Extensions using modern web technologies and best practices",
-      link: "https://fullstackextensions.com/?ref=devportfolio",
-      skills: ["React", "Node.js", "AWS"],
+        "タワーディフェンスゲーム。プレイヤーはタワーを配置して敵の進行を阻止します。戦略的な配置とタイミングが重要です。",
+      link: "https://unityroom.com/games/foxrtd",
+      skills: ["Unity", "C#"],
     },
     {
       name: "ExtensionKit",
