@@ -11,11 +11,13 @@ export type SiteConfig = {
   };
   aboutMe: string;
   skills: string[];
+  hero_title: string;
 };
 
 export const siteConfig: SiteConfig = {
   name: "Tinnosuke",
   title: "Tinnosuke's Portfolio",
+  hero_title: "Welcome to my portfolio!",
   description: "Portfolio website of Tinnosuke",
   accentColor: "#1d4ed8",
   social: {

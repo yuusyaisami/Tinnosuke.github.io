@@ -1,0 +1,245 @@
+---
+import { withBase } from "../utils/url";
+
+type ShowcaseItem = {
+  kind: "image" | "video";
+  src: string;
+  alt?: string;
+  poster?: string;
+  label?: string;
+};
+
+const { items, projectName } = Astro.props as {
+  items: ShowcaseItem[];
+  projectName: string;
+};
+
+const normalizedItems = items.map((item, index) => ({
+  ...item,
+  alt: item.alt ?? `${projectName} preview ${index + 1}`,
+  label: item.label ?? `${item.kind === "video" ? "Video" : "Image"} ${index + 1}`,
+}));
+---
+
+{
+  normalizedItems.length > 0 && (
+    <section class="mt-6 space-y-3" data-project-showcase>
+      <div class="group relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-slate-900">
+        {normalizedItems.map((item, index) => (
+          <figure
+            class:list={["showcase-item", index === 0 && "is-active"]}
+            data-showcase-item
+            aria-hidden={index === 0 ? "false" : "true"}
+          >
+            {item.kind === "video" ? (
+              <video
+                src={withBase(item.src)}
+                poster={item.poster ? withBase(item.poster) : undefined}
+                class="aspect-[16/9] w-full object-cover"
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                aria-label={item.alt}
+              />
+            ) : (
+              <img
+                src={withBase(item.src)}
+                alt={item.alt}
+                class="aspect-[16/9] w-full object-cover"
+                loading={index === 0 ? "eager" : "lazy"}
+              />
+            )}
+
+            <figcaption class="absolute left-4 top-4 inline-flex rounded-full border border-white/15 bg-slate-950/70 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-white backdrop-blur">
+              {item.label}
+            </figcaption>
+          </figure>
+        ))}
+
+        {normalizedItems.length > 1 && (
+          <>
+            <div class="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-slate-950/25 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <div class="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-slate-950/25 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+            <button
+              type="button"
+              data-showcase-prev
+              class="absolute left-4 top-1/2 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-slate-950/70 text-white opacity-0 shadow-lg backdrop-blur transition-all duration-300 hover:scale-[1.04] hover:bg-slate-950/85 group-hover:opacity-100"
+              aria-label="Previous preview"
+            >
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15 18l-6-6l6-6" />
+              </svg>
+            </button>
+
+            <button
+              type="button"
+              data-showcase-next
+              class="absolute right-4 top-1/2 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-slate-950/70 text-white opacity-0 shadow-lg backdrop-blur transition-all duration-300 hover:scale-[1.04] hover:bg-slate-950/85 group-hover:opacity-100"
+              aria-label="Next preview"
+            >
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 18l6-6l-6-6" />
+              </svg>
+            </button>
+
+            <div class="absolute bottom-4 right-4 rounded-full border border-white/15 bg-slate-950/70 px-3 py-1.5 text-xs font-semibold tracking-[0.2em] text-white backdrop-blur">
+              <span data-showcase-counter>1 / {normalizedItems.length}</span>
+            </div>
+          </>
+        )}
+      </div>
+
+      {normalizedItems.length > 1 && (
+        <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+          {normalizedItems.map((item, index) => (
+            <button
+              type="button"
+              class:list={["showcase-thumb", index === 0 && "is-active"]}
+              data-showcase-thumb
+              aria-pressed={index === 0 ? "true" : "false"}
+              aria-label={`Show ${item.label}`}
+            >
+              <div class="showcase-thumb-frame relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 dark:border-slate-700 dark:bg-slate-900">
+                {item.kind === "video" ? (
+                  item.poster ? (
+                    <img
+                      src={withBase(item.poster)}
+                      alt=""
+                      class="aspect-[16/9] w-full object-cover"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div class="flex aspect-[16/9] w-full items-center justify-center bg-slate-200 text-xs font-semibold uppercase tracking-[0.24em] text-slate-600 dark:bg-slate-800 dark:text-slate-300">
+                      Video
+                    </div>
+                  )
+                ) : (
+                  <img
+                    src={withBase(item.src)}
+                    alt=""
+                    class="aspect-[16/9] w-full object-cover"
+                    loading="lazy"
+                  />
+                )}
+
+                {item.kind === "video" && (
+                  <span class="absolute bottom-2 right-2 rounded-full border border-white/20 bg-slate-950/75 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur">
+                    Video
+                  </span>
+                )}
+              </div>
+            </button>
+          ))}
+        </div>
+      )}
+    </section>
+  )
+}
+
+<script is:inline>
+  const galleries = document.querySelectorAll("[data-project-showcase]");
+
+  for (const gallery of galleries) {
+    if (gallery.dataset.ready === "true") {
+      continue;
+    }
+
+    gallery.dataset.ready = "true";
+
+    const items = Array.from(gallery.querySelectorAll("[data-showcase-item]"));
+    const thumbs = Array.from(gallery.querySelectorAll("[data-showcase-thumb]"));
+    const prevButton = gallery.querySelector("[data-showcase-prev]");
+    const nextButton = gallery.querySelector("[data-showcase-next]");
+    const counter = gallery.querySelector("[data-showcase-counter]");
+
+    let activeIndex = Math.max(
+      0,
+      items.findIndex((item) => item.classList.contains("is-active")),
+    );
+
+    const syncVideos = () => {
+      items.forEach((item, index) => {
+        const video = item.querySelector("video");
+
+        if (!video) {
+          return;
+        }
+
+        if (index === activeIndex) {
+          const playPromise = video.play();
+          if (playPromise) {
+            playPromise.catch(() => undefined);
+          }
+          return;
+        }
+
+        video.pause();
+        video.currentTime = 0;
+      });
+    };
+
+    const setActive = (nextIndex) => {
+      activeIndex = (nextIndex + items.length) % items.length;
+
+      items.forEach((item, index) => {
+        const isActive = index === activeIndex;
+
+        item.classList.toggle("is-active", isActive);
+        item.setAttribute("aria-hidden", String(!isActive));
+      });
+
+      thumbs.forEach((thumb, index) => {
+        const isActive = index === activeIndex;
+
+        thumb.classList.toggle("is-active", isActive);
+        thumb.setAttribute("aria-pressed", String(isActive));
+      });
+
+      if (counter) {
+        counter.textContent = `${activeIndex + 1} / ${items.length}`;
+      }
+
+      syncVideos();
+    };
+
+    prevButton?.addEventListener("click", () => setActive(activeIndex - 1));
+    nextButton?.addEventListener("click", () => setActive(activeIndex + 1));
+
+    thumbs.forEach((thumb, index) => {
+      thumb.addEventListener("click", () => setActive(index));
+    });
+
+    setActive(activeIndex);
+  }
+</script>
+
+<style>
+  .showcase-item {
+    display: none;
+    position: relative;
+  }
+
+  .showcase-item.is-active {
+    display: block;
+  }
+
+  .showcase-thumb {
+    text-align: left;
+  }
+
+  .showcase-thumb.is-active .showcase-thumb-frame {
+    border-color: rgb(37 99 235 / 0.85);
+    box-shadow: 0 0 0 1px rgb(37 99 235 / 0.45);
+  }
+
+  .showcase-thumb:focus-visible {
+    outline: none;
+  }
+
+  .showcase-thumb:focus-visible .showcase-thumb-frame {
+    border-color: rgb(37 99 235 / 0.95);
+    box-shadow: 0 0 0 2px rgb(37 99 235 / 0.35);
+  }
+</style>

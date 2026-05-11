@@ -5,7 +5,9 @@
   "category": "other",
   "skills": ["Unity", "C#", "UI Toolkit", "Shader"],
   "links": {},
-  "media": {},
+  "media": {
+    "gallery": []
+  },
   "production": {},
   "status": "in-progress",
   "featured": false

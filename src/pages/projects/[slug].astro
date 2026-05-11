@@ -1,4 +1,5 @@
 ---
+import ProjectShowcase from "../../components/ProjectShowcase.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { render } from "astro:content";
@@ -41,6 +42,18 @@ const productionPeriod = formatProductionPeriod(
   project.data.production.end,
 );
 const completionLabel = getCompletionLabel(project);
+const showcaseItems = project.data.media.gallery.length > 0
+  ? project.data.media.gallery
+  : project.data.media.card
+    ? [
+        {
+          kind: "image" as const,
+          src: project.data.media.card.src,
+          alt: project.data.media.card.alt,
+          label: "Main Visual",
+        },
+      ]
+    : [];
 const sections = await getProjectSections(project.id);
 const renderedSections = await Promise.all(
   sections.map(async (section) => {
@@ -145,15 +158,7 @@ const tableOfContents = renderedSections.flatMap((section) => [
             </nav>
           )}
 
-          {project.data.media.screenshot && (
-            <div class="mt-6 overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-slate-900">
-              <img
-                src={withBase(project.data.media.screenshot)}
-                alt={`${project.data.name} screenshot`}
-                class="h-full w-full object-cover"
-              />
-            </div>
-          )}
+          <ProjectShowcase items={showcaseItems} projectName={project.data.name} />
 
           <div class="mt-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/70 sm:p-8">
             <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100">

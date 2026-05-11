@@ -8,7 +8,18 @@
     "game": "https://unityroom.com/games/syonen_sottini_ikuna"
   },
   "media": {
-    "screenshot": "/Sprite/SyonenObakeSprite1.png",
+    "card": {
+      "src": "/Sprite/SyonenObakeSprite1.png",
+      "alt": "少年を施設から無事脱出させるゲーム card visual"
+    },
+    "gallery": [
+      {
+        "kind": "image",
+        "src": "/Sprite/SyonenObakeSprite1.png",
+        "alt": "少年を施設から無事脱出させるゲーム gameplay preview",
+        "label": "Preview 01"
+      }
+    ],
     "icon": "/Sprite/SyonenObakeIcon1.png"
   },
   "production": {

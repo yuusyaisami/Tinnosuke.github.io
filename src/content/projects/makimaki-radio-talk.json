@@ -8,7 +8,18 @@
     "game": "https://unityroom.com/games/makimakiradiotalk"
   },
   "media": {
-    "screenshot": "/Sprite/MakiMakiSprite1.png",
+    "card": {
+      "src": "/Sprite/MakiMakiSprite1.png",
+      "alt": "MakiMaki Radio Talk! card visual"
+    },
+    "gallery": [
+      {
+        "kind": "image",
+        "src": "/Sprite/MakiMakiSprite1.png",
+        "alt": "MakiMaki Radio Talk! gameplay preview",
+        "label": "Preview 01"
+      }
+    ],
     "icon": "/Sprite/MakiMakiIcon1.png"
   },
   "production": {

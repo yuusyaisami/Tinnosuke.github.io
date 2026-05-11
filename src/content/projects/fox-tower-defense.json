@@ -8,7 +8,18 @@
     "game": "https://unityroom.com/games/foxrtd"
   },
   "media": {
-    "screenshot": "/Sprite/FoxTowerDefanceSprite1.png",
+    "card": {
+      "src": "/Sprite/FoxTowerDefanceSprite1.png",
+      "alt": "Fox towerDefense card visual"
+    },
+    "gallery": [
+      {
+        "kind": "image",
+        "src": "/Sprite/FoxTowerDefanceSprite1.png",
+        "alt": "Fox towerDefense gameplay preview",
+        "label": "Preview 01"
+      }
+    ],
     "icon": "/Sprite/FoxTowerDefanceIcon1.png"
   },
   "production": {

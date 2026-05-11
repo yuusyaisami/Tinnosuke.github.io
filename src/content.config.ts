@@ -4,6 +4,14 @@ import { z } from "astro/zod";
 
 const productionDateSchema = z.string().regex(/^\d{4}-\d{2}(-\d{2})?$/);
 
+const projectGalleryItemSchema = z.object({
+  kind: z.enum(["image", "video"]),
+  src: z.string(),
+  alt: z.string().optional(),
+  poster: z.string().optional(),
+  label: z.string().optional(),
+});
+
 const projects = defineCollection({
   loader: glob({
     pattern: "**/*.json",
@@ -20,7 +28,11 @@ const projects = defineCollection({
       source: z.url().optional(),
     }),
     media: z.object({
-      screenshot: z.string().optional(),
+      card: z.object({
+        src: z.string(),
+        alt: z.string().optional(),
+      }).optional(),
+      gallery: z.array(projectGalleryItemSchema).default([]),
       icon: z.string().optional(),
     }),
     production: z.object({

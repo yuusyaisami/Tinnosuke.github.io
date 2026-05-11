@@ -4,8 +4,37 @@ import {
   getCompletionLabel,
   getGroupedProjects,
   sortPortfolioEntries,
+  type PortfolioProjectEntry,
 } from "../utils/portfolio";
 import { withBase } from "../utils/url";
+
+function getCardMedia(project: PortfolioProjectEntry) {
+  if (project.data.media.card) {
+    return project.data.media.card;
+  }
+
+  const galleryImage = project.data.media.gallery.find((item) => item.kind === "image");
+
+  if (galleryImage) {
+    return {
+      src: galleryImage.src,
+      alt: galleryImage.alt,
+    };
+  }
+
+  const galleryVideo = project.data.media.gallery.find(
+    (item) => item.kind === "video" && item.poster,
+  );
+
+  if (galleryVideo?.poster) {
+    return {
+      src: galleryVideo.poster,
+      alt: galleryVideo.alt,
+    };
+  }
+
+  return undefined;
+}
 
 const { games, otherProjects } = await getGroupedProjects();
 const sortedGames = sortPortfolioEntries(games);
@@ -35,7 +64,7 @@ const hasOtherProjects = sortedOtherProjects.length > 0;
                 project.data.production.end,
               );
               const completionLabel = getCompletionLabel(project);
-              const screenshot = project.data.media.screenshot;
+              const cardMedia = getCardMedia(project);
               const icon = project.data.media.icon;
 
               return (
@@ -43,11 +72,11 @@ const hasOtherProjects = sortedOtherProjects.length > 0;
                   href={withBase(`/projects/${project.data.slug}`)}
                   class="group overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900/70"
                 >
-                  {screenshot ? (
+                  {cardMedia ? (
                     <div class="relative aspect-[4/3] overflow-hidden">
                       <img
-                        src={withBase(screenshot)}
-                        alt={`${project.data.name} screenshot`}
+                        src={withBase(cardMedia.src)}
+                        alt={cardMedia.alt ?? `${project.data.name} preview`}
                         class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                         loading="lazy"
                       />
