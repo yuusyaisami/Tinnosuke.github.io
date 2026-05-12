@@ -3,12 +3,54 @@
   "name": "Simple Shooting Game",
   "summary": "敵を撃ち倒してスコアを伸ばすことに集中した、短時間で遊べるシンプルなシューティングゲームです。",
   "category": "game",
-  "skills": ["Unity", "C#"],
+  "skills": ["OpenTK", "C#", "SDL-CS"],
   "links": {
-    "game": "https://unityroom.com/games/simpleshootinggame"
+    "game": "",
+    "source": "https://github.com/yuusyaisami/ShootinSpace-CS"
   },
   "media": {
-    "gallery": []
+    "card": {
+      "src": "/Sprite/SimpleShootingSprite1.png",
+      "alt": "Simple Shooting Game card visual"
+    },
+    "gallery": [
+      {
+        "kind": "image",
+        "src": "/Sprite/SimpleShootingSprite0.png",
+        "alt": "Simple Shooting Game gameplay preview",
+        "label": "Preview 00"
+      },
+      {
+        "kind": "image",
+        "src": "/Sprite/SimpleShootingSprite1.png",
+        "alt": "Simple Shooting Game gameplay preview",
+        "label": "Preview 01"
+      },
+      {
+        "kind": "image",
+        "src": "/Sprite/SimpleShootingSprite2.png",
+        "alt": "Simple Shooting Game gameplay preview",
+        "label": "Preview 02"
+      },
+      {
+        "kind": "image",
+        "src": "/Sprite/SimpleShootingSprite3.png",
+        "alt": "Simple Shooting Game gameplay preview",
+        "label": "Preview 03"
+      },
+        {
+          "kind": "image",
+          "src": "/Sprite/SimpleShootingSprite4.png",
+          "alt": "Simple Shooting Game gameplay preview",
+          "label": "Preview 04"
+        },
+        {
+          "kind": "image",
+          "src": "/Sprite/SimpleShootingSprite5.png",
+          "alt": "Simple Shooting Game gameplay preview",
+          "label": "Preview 05"
+        }
+    ]
   },
   "production": {
     "start": "2025-03-24",
