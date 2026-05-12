@@ -5,7 +5,6 @@
   "category": "game",
   "skills": ["OpenTK", "C#", "SDL-CS"],
   "links": {
-    "game": "",
     "source": "https://github.com/yuusyaisami/ShootinSpace-CS"
   },
   "media": {
