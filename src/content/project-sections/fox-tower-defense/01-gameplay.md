@@ -1,5 +1,5 @@
 ---
-project: fox-tower-defense
+project: cd-on-tk
 key: gameplay
 title: Gameplay
 order: 10
