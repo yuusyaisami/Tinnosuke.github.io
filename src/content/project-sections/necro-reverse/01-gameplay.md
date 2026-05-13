@@ -1,5 +1,5 @@
 ---
-project: nero-reverse
+project: necro-reverse
 key: gameplay
 title: Gameplay
 order: 10

@@ -1,5 +1,5 @@
 ---
-project: nero-reverse
+project: necro-reverse
 key: development
 title: Development
 order: 20

@@ -5,7 +5,8 @@
   "category": "game",
   "skills": ["Unity", "C#"],
   "links": {
-    "game": "https://unityroom.com/games/makimakiradiotalk"
+    "game": "https://unityroom.com/games/makimakiradiotalk",
+    "source": "https://github.com/yuusyaisami/RadioBattle"
   },
   "media": {
     "card": {

@@ -4,16 +4,10 @@ import { withBase } from "../utils/url";
 
 const TARGET_ICON_HEIGHT = 44;
 
-const spritePayload = heroDecorSprites.map((sprite) => {
-  const scale = TARGET_ICON_HEIGHT / sprite.frameHeight;
-
-  return {
-    ...sprite,
-    src: withBase(sprite.src),
-    displayWidth: Math.round(sprite.frameWidth * scale),
-    displayHeight: TARGET_ICON_HEIGHT,
-  };
-});
+const spritePayload = heroDecorSprites.map((sprite) => ({
+  ...sprite,
+  src: withBase(sprite.src),
+}));
 ---
 
 <span class="random-sprite-icon" data-random-sprite-icon data-sprites={JSON.stringify(spritePayload)} aria-hidden="true">
@@ -55,32 +49,45 @@ const spritePayload = heroDecorSprites.map((sprite) => {
     }
 
     const pickedSprite = sprites[Math.floor(Math.random() * sprites.length)];
-    const wrapper = document.createElement("span");
-    wrapper.className = "random-sprite-icon__item";
-    wrapper.style.setProperty("--sprite-width", `${pickedSprite.displayWidth}px`);
-    wrapper.style.setProperty("--sprite-height", `${pickedSprite.displayHeight}px`);
+    const image = new Image();
 
-    if (pickedSprite.kind === "sheet") {
-      const sheet = document.createElement("span");
-      sheet.className = "random-sprite-icon__sheet";
-      sheet.style.width = `${pickedSprite.displayWidth}px`;
-      sheet.style.height = `${pickedSprite.displayHeight}px`;
-      sheet.style.backgroundImage = `url(${pickedSprite.src})`;
-      sheet.style.backgroundRepeat = "no-repeat";
-      sheet.style.backgroundSize = `${pickedSprite.displayWidth * pickedSprite.frameCount}px ${pickedSprite.displayHeight}px`;
-      sheet.style.animation = `random-sprite-icon-sheet ${pickedSprite.frameDurationMs}ms steps(${pickedSprite.frameCount}) infinite`;
-      wrapper.append(sheet);
-    } else {
-      const image = document.createElement("img");
-      image.className = "random-sprite-icon__image";
-      image.src = pickedSprite.src;
-      image.alt = "";
-      image.decoding = "async";
-      image.loading = "eager";
-      wrapper.append(image);
-    }
+    image.addEventListener("load", () => {
+      const columns = Math.max(1, Number.parseInt(String(pickedSprite.columns ?? 1), 10));
+      const rows = Math.max(1, Number.parseInt(String(pickedSprite.rows ?? 1), 10));
+      const frameWidth = image.naturalWidth / columns;
+      const frameHeight = image.naturalHeight / rows;
+      const scale = TARGET_ICON_HEIGHT / frameHeight;
+      const displayWidth = Math.round(frameWidth * scale);
+      const wrapper = document.createElement("span");
 
-    stage.replaceChildren(wrapper);
+      wrapper.className = "random-sprite-icon__item";
+      wrapper.style.setProperty("--sprite-width", `${displayWidth}px`);
+      wrapper.style.setProperty("--sprite-height", `${TARGET_ICON_HEIGHT}px`);
+
+      if (pickedSprite.kind === "sheet") {
+        const sheet = document.createElement("span");
+        sheet.className = "random-sprite-icon__sheet";
+        sheet.style.width = `${displayWidth}px`;
+        sheet.style.height = `${TARGET_ICON_HEIGHT}px`;
+        sheet.style.backgroundImage = `url(${pickedSprite.src})`;
+        sheet.style.backgroundRepeat = "no-repeat";
+        sheet.style.backgroundSize = `${displayWidth * columns}px ${TARGET_ICON_HEIGHT * rows}px`;
+        sheet.style.animation = `random-sprite-icon-sheet ${pickedSprite.frameDurationMs}ms steps(${columns}) infinite`;
+        wrapper.append(sheet);
+      } else {
+        const spriteImage = document.createElement("img");
+        spriteImage.className = "random-sprite-icon__image";
+        spriteImage.src = pickedSprite.src;
+        spriteImage.alt = "";
+        spriteImage.decoding = "async";
+        spriteImage.loading = "eager";
+        wrapper.append(spriteImage);
+      }
+
+      stage.replaceChildren(wrapper);
+    }, { once: true });
+
+    image.src = pickedSprite.src;
   }
 </script>
 

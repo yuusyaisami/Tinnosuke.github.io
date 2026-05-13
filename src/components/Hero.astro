@@ -71,15 +71,10 @@ const primaryAnchor = games.length > 0 ? "#games" : "#other-projects";
   <div class="relative mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-18">
     <div class="grid gap-8 lg:grid-cols-[minmax(0,1.06fr)_minmax(280px,340px)] lg:items-start lg:gap-10">
       <div class="relative flex max-w-3xl flex-col items-start">
-        <div class="inline-flex items-center gap-3 rounded-full border border-slate-200/80 bg-white/80 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.26em] text-slate-500 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-900/75 dark:text-slate-300">
-          <span class="h-2 w-2 rounded-full" style={`background-color: ${siteConfig.accentColor}`}></span>
-          Indie Game Developer Portfolio
-        </div>
-
         {
           titleImage && (
             <img
-              class="mt-6 w-full max-w-2xl rounded-[2rem] border border-slate-200/80 bg-white/80 object-cover shadow-[0_24px_80px_rgba(15,23,42,0.12)] dark:border-slate-800 dark:bg-slate-900/80"
+              class="w-full max-w-2xl rounded-[2rem] border border-slate-200/80 bg-white/80 object-cover shadow-[0_24px_80px_rgba(15,23,42,0.12)] dark:border-slate-800 dark:bg-slate-900/80"
               src={withBase(titleImage)}
               alt={siteConfig.hero_title}
             />
@@ -94,22 +89,6 @@ const primaryAnchor = games.length > 0 ? "#games" : "#other-projects";
           <p class="mt-4 max-w-xl text-base leading-8 text-slate-600 sm:text-lg dark:text-slate-300">
             {thanksMessage}
           </p>
-
-          {
-            socialLinks.length > 0 && (
-              <div class="mt-6 flex flex-wrap gap-3" aria-label="Social Links">
-                {socialLinks.map((link) => (
-                  <a
-                    class="inline-flex items-center rounded-full border border-slate-200/80 bg-white/80 px-4 py-2 text-sm font-medium text-slate-600 shadow-sm transition-colors hover:border-slate-300 hover:text-slate-950 dark:border-slate-700 dark:bg-slate-900/75 dark:text-slate-300 dark:hover:border-slate-600 dark:hover:text-white"
-                    target={link.external ? "_blank" : undefined}
-                    rel={link.external ? "noopener noreferrer" : undefined}
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-            )
-          }
 
           <div class="mt-8 flex flex-wrap gap-3">
             <a
@@ -130,12 +109,7 @@ const primaryAnchor = games.length > 0 ? "#games" : "#other-projects";
 
       <aside class="w-full max-w-sm justify-self-start rounded-[2rem] border border-slate-200/80 bg-white/82 p-6 shadow-[0_24px_70px_rgba(15,23,42,0.10)] backdrop-blur dark:border-slate-800 dark:bg-slate-900/70 sm:p-7 lg:sticky lg:top-24 lg:min-h-[33rem] lg:justify-self-end">
         <div class="flex h-full flex-col">
-          <div class="inline-flex w-fit items-center gap-2 rounded-full border border-slate-200/80 bg-slate-50/80 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500 dark:border-slate-700 dark:bg-slate-800/70 dark:text-slate-300">
-            <PixelSprite sprite={spriteIconAssets.necoArc} height={16} />
-            Profile
-          </div>
-
-          <div class="mt-6 flex items-start gap-4">
+          <div class="flex items-start gap-4">
             <div class="inline-flex h-20 w-20 items-center justify-center rounded-[1.5rem] border border-slate-200/80 bg-slate-50/85 shadow-inner dark:border-slate-700 dark:bg-slate-800/80">
               <PixelSprite sprite={spriteIconAssets.necoArc} height={56} />
             </div>
