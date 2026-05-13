@@ -1,4 +1,5 @@
 ---
+import RandomSpriteIcon from "./RandomSpriteIcon.astro";
 import { siteConfig } from "../config";
 import { withBase } from "../utils/url";
 
@@ -17,8 +18,8 @@ const navItems = [
       href={withBase("/")}
       aria-label={siteConfig.name}
     >
-      <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-slate-200/80 bg-white/80 text-sm font-bold uppercase tracking-[0.2em] text-slate-700 shadow-sm transition-transform duration-300 group-hover:-translate-y-0.5 dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-100">
-        TS
+      <span class="transition-transform duration-300 group-hover:-translate-y-0.5">
+        <RandomSpriteIcon />
       </span>
       <span class="min-w-0">
         <span class="block truncate text-lg font-bold tracking-tight">
