@@ -372,6 +372,11 @@ const normalizedItems = items.map((item, index) => ({
       showUi(!(activeVideo && !activeVideo.paused));
     });
 
+    gallery.addEventListener("touchstart", () => {
+      const activeVideo = items[activeIndex]?.querySelector("video");
+      showUi(!(activeVideo && !activeVideo.paused));
+    }, { passive: true });
+
     gallery.addEventListener("mouseleave", () => {
       if (uiVisibleTimer) {
         window.clearTimeout(uiVisibleTimer);

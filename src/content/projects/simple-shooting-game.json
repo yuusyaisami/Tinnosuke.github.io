@@ -15,12 +15,6 @@
     "gallery": [
       {
         "kind": "image",
-        "src": "/Sprite/games/SimpleShootingSprite0.png",
-        "alt": "Simple Shooting Game gameplay preview",
-        "label": "Preview 00"
-      },
-      {
-        "kind": "image",
         "src": "/Sprite/games/SimpleShootingSprite1.png",
         "alt": "Simple Shooting Game gameplay preview",
         "label": "Preview 01"
