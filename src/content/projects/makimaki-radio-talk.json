@@ -14,10 +14,28 @@
     },
     "gallery": [
       {
+        "kind": "video",
+        "src": "/Video/Games/MakiMakiRadioTalkVideo1.mp4",
+        "alt": "MakiMaki Radio Talk! gameplay preview",
+        "label": "Preview 00"
+      },
+      {
         "kind": "image",
         "src": "/Sprite/games/MakiMakiSprite1.png",
         "alt": "MakiMaki Radio Talk! gameplay preview",
         "label": "Preview 01"
+      },
+      {
+        "kind": "image",
+        "src": "/Sprite/games/MakiMakiSprite2.png",
+        "alt": "MakiMaki Radio Talk! gameplay preview",
+        "label": "Preview 02"
+      },
+      {
+        "kind": "image",
+        "src": "/Sprite/games/MakiMakiSprite3.png",
+        "alt": "MakiMaki Radio Talk! gameplay preview",
+        "label": "Preview 03"
       }
     ],
     "icon": "/Sprite/games/MakiMakiIcon1.png"
