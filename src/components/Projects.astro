@@ -45,19 +45,27 @@ const hasOtherProjects = sortedOtherProjects.length > 0;
 
 {
   (hasGames || hasOtherProjects) && (
-    <div class="py-10 sm:py-14 lg:py-16">
+    <div class="space-y-10 py-10 sm:space-y-12 sm:py-14 lg:space-y-14 lg:py-16">
       {hasGames && (
-        <section id="games">
-          <div class="mb-5">
-            <h2 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-slate-100 sm:text-3xl">
-              Games
-            </h2>
-            <p class="mt-2 text-sm text-gray-600 dark:text-slate-400">
-              カードをクリックすると、ゲームの詳細ページへ移動します。
-            </p>
+        <section id="games" class="rounded-[2rem] border border-slate-200/80 bg-white/70 p-5 shadow-[0_20px_70px_rgba(15,23,42,0.08)] backdrop-blur dark:border-slate-800 dark:bg-slate-950/45 sm:p-7 lg:p-8">
+          <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p class="text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">
+                Selected Works
+              </p>
+              <h2 class="mt-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-slate-100 sm:text-3xl">
+                Games
+              </h2>
+              <p class="mt-2 text-sm text-gray-600 dark:text-slate-400">
+                カードをクリックすると、ゲームの詳細ページへ移動します。
+              </p>
+            </div>
+            <span class="inline-flex w-fit items-center rounded-full border border-slate-200/80 bg-white/85 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-slate-500 shadow-sm dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-300">
+              {sortedGames.length} titles
+            </span>
           </div>
 
-          <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {sortedGames.map((project) => {
               const periodLabel = formatProductionPeriod(
                 project.data.production.start,
@@ -70,19 +78,22 @@ const hasOtherProjects = sortedOtherProjects.length > 0;
               return (
                 <a
                   href={withBase(`/projects/${project.data.slug}`)}
-                  class="group overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900/70"
+                  class="group overflow-hidden rounded-[1.75rem] border border-slate-200/80 bg-white/90 shadow-[0_20px_60px_rgba(15,23,42,0.10)] ring-1 ring-white/70 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_28px_80px_rgba(15,23,42,0.14)] dark:border-slate-800 dark:bg-slate-900/70 dark:ring-white/5"
                 >
                   {cardMedia ? (
                     <div class="relative aspect-[4/3] overflow-hidden">
                       <img
                         src={withBase(cardMedia.src)}
                         alt={cardMedia.alt ?? `${project.data.name} preview`}
-                        class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                        class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
                         loading="lazy"
                       />
-                      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/25 to-transparent" />
-                      <div class="absolute inset-x-0 bottom-0 p-4">
-                        <h3 class="text-base font-semibold text-white sm:text-lg">
+                      <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent opacity-95" />
+                      <div class="absolute left-4 top-4 inline-flex items-center rounded-full border border-white/20 bg-slate-950/60 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-white backdrop-blur">
+                        Game
+                      </div>
+                      <div class="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+                        <h3 class="text-lg font-semibold text-white">
                           {project.data.name}
                         </h3>
                         <p class="mt-2 text-sm leading-6 text-slate-200">
@@ -90,9 +101,9 @@ const hasOtherProjects = sortedOtherProjects.length > 0;
                         </p>
 
                         {(periodLabel || completionLabel) && (
-                          <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-slate-200">
+                          <div class="mt-4 flex flex-wrap items-center gap-2 text-xs text-slate-200">
                             {periodLabel && (
-                              <span class="inline-flex items-center gap-2 rounded-full bg-white/10 px-2.5 py-1 backdrop-blur">
+                              <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/10 px-2.5 py-1 backdrop-blur">
                                 {icon && (
                                   <img
                                     src={withBase(icon)}
@@ -114,8 +125,11 @@ const hasOtherProjects = sortedOtherProjects.length > 0;
                       </div>
                     </div>
                   ) : (
-                    <div class="p-4 sm:p-5">
-                      <h3 class="text-base font-semibold text-gray-900 dark:text-slate-100">
+                    <div class="p-5 sm:p-6">
+                      <div class="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                        Game
+                      </div>
+                      <h3 class="mt-4 text-lg font-semibold text-gray-900 dark:text-slate-100">
                         {project.data.name}
                       </h3>
                       <p class="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
@@ -154,17 +168,25 @@ const hasOtherProjects = sortedOtherProjects.length > 0;
       )}
 
       {hasOtherProjects && (
-        <section id="other-projects" class="mt-10 sm:mt-12">
-          <div class="mb-5">
-            <h2 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-slate-100 sm:text-3xl">
-              Other Projects
-            </h2>
-            <p class="mt-2 text-sm text-gray-600 dark:text-slate-400">
-              フレームワークやゲーム以外の制作物をまとめています。
-            </p>
+        <section id="other-projects" class="rounded-[2rem] border border-slate-200/80 bg-white/70 p-5 shadow-[0_20px_70px_rgba(15,23,42,0.08)] backdrop-blur dark:border-slate-800 dark:bg-slate-950/45 sm:p-7 lg:p-8">
+          <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p class="text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">
+                Tools And Systems
+              </p>
+              <h2 class="mt-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-slate-100 sm:text-3xl">
+                Other Projects
+              </h2>
+              <p class="mt-2 text-sm text-gray-600 dark:text-slate-400">
+                フレームワークやゲーム以外の制作物をまとめています。
+              </p>
+            </div>
+            <span class="inline-flex w-fit items-center rounded-full border border-slate-200/80 bg-white/85 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-slate-500 shadow-sm dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-300">
+              {sortedOtherProjects.length} entries
+            </span>
           </div>
 
-          <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {sortedOtherProjects.map((project) => {
               const periodLabel = formatProductionPeriod(
                 project.data.production.start,
@@ -176,17 +198,20 @@ const hasOtherProjects = sortedOtherProjects.length > 0;
               return (
                 <a
                   href={withBase(`/projects/${project.data.slug}`)}
-                  class="group rounded-2xl border border-gray-200 bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900/70 sm:p-5"
+                  class="group rounded-[1.6rem] border border-slate-200/80 bg-white/90 p-5 shadow-[0_18px_50px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(15,23,42,0.12)] dark:border-slate-800 dark:bg-slate-900/70 sm:p-6"
                 >
-                  <h3 class="text-base font-semibold text-gray-900 dark:text-slate-100">
+                  <div class="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                    System
+                  </div>
+                  <h3 class="mt-4 text-lg font-semibold text-gray-900 dark:text-slate-100">
                     {project.data.name}
                   </h3>
-                  <p class="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                  <p class="mt-3 min-h-24 text-sm leading-6 text-slate-600 dark:text-slate-300">
                     {project.data.summary}
                   </p>
 
                   {(periodLabel || completionLabel) && (
-                    <div class="mt-4 flex flex-wrap items-center gap-2 text-xs text-slate-600 dark:text-slate-300">
+                    <div class="mt-5 flex flex-wrap items-center gap-2 text-xs text-slate-600 dark:text-slate-300">
                       {periodLabel && (
                         <span class="inline-flex items-center gap-2 rounded-full bg-slate-100 px-2.5 py-1 dark:bg-slate-800">
                           {icon && (

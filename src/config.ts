@@ -19,7 +19,7 @@ export type SiteConfig = {
 export const siteConfig: SiteConfig = {
   name: "Tinnosuke",
   title: "Portfolio",
-  title_image: "/Sprite/Title_Image1.png",
+  title_image: "/Sprite/games/Title_Image1.png",
   hero_title: "Welcome to my portfolio!",
   description: "Portfolio website of Tinnosuke",
 

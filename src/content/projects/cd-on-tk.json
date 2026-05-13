@@ -9,36 +9,36 @@
   },
   "media": {
     "card": {
-      "src": "/Sprite/CdOnTkSprite1.png",
+      "src": "/Sprite/games/CdOnTkSprite1.png",
       "alt": "たこが空を飛ぶゲーム card visual"
     },
     "gallery": [
       {
         "kind": "image",
-        "src": "/Sprite/CdOnTkSprite0.png",
+        "src": "/Sprite/games/CdOnTkSprite0.png",
         "alt": "たこが空を飛ぶゲーム gameplay preview",
         "label": "Preview 00"
       },
       {
         "kind": "image",
-        "src": "/Sprite/CdOnTkSprite1.png",
+        "src": "/Sprite/games/CdOnTkSprite1.png",
         "alt": "たこが空を飛ぶゲーム gameplay preview",
         "label": "Preview 01"
       },
       {
         "kind": "image",
-        "src": "/Sprite/CdOnTkSprite2.png",
+        "src": "/Sprite/games/CdOnTkSprite2.png",
         "alt": "たこが空を飛ぶゲーム gameplay preview",
         "label": "Preview 02"
       },
       {
         "kind": "image",
-        "src": "/Sprite/CdOnTkSprite3.png",
+        "src": "/Sprite/games/CdOnTkSprite3.png",
         "alt": "たこが空を飛ぶゲーム gameplay preview",
         "label": "Preview 03"
       }
     ],
-    "icon": "/Sprite/CdOnTkIcon1.png"
+    "icon": "/Sprite/games/CdOnTkIcon1.png"
   },
   "production": {
     "start": "2025-03-24",

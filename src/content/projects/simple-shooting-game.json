@@ -9,43 +9,43 @@
   },
   "media": {
     "card": {
-      "src": "/Sprite/SimpleShootingSprite1.png",
+      "src": "/Sprite/games/SimpleShootingSprite1.png",
       "alt": "Simple Shooting Game card visual"
     },
     "gallery": [
       {
         "kind": "image",
-        "src": "/Sprite/SimpleShootingSprite0.png",
+        "src": "/Sprite/games/SimpleShootingSprite0.png",
         "alt": "Simple Shooting Game gameplay preview",
         "label": "Preview 00"
       },
       {
         "kind": "image",
-        "src": "/Sprite/SimpleShootingSprite1.png",
+        "src": "/Sprite/games/SimpleShootingSprite1.png",
         "alt": "Simple Shooting Game gameplay preview",
         "label": "Preview 01"
       },
       {
         "kind": "image",
-        "src": "/Sprite/SimpleShootingSprite2.png",
+        "src": "/Sprite/games/SimpleShootingSprite2.png",
         "alt": "Simple Shooting Game gameplay preview",
         "label": "Preview 02"
       },
       {
         "kind": "image",
-        "src": "/Sprite/SimpleShootingSprite3.png",
+        "src": "/Sprite/games/SimpleShootingSprite3.png",
         "alt": "Simple Shooting Game gameplay preview",
         "label": "Preview 03"
       },
         {
           "kind": "image",
-          "src": "/Sprite/SimpleShootingSprite4.png",
+          "src": "/Sprite/games/SimpleShootingSprite4.png",
           "alt": "Simple Shooting Game gameplay preview",
           "label": "Preview 04"
         },
         {
           "kind": "image",
-          "src": "/Sprite/SimpleShootingSprite5.png",
+          "src": "/Sprite/games/SimpleShootingSprite5.png",
           "alt": "Simple Shooting Game gameplay preview",
           "label": "Preview 05"
         }

@@ -9,36 +9,36 @@
   },
   "media": {
     "card": {
-      "src": "/Sprite/NecroReverseSprite1.png",
+      "src": "/Sprite/games/NecroReverseSprite1.png",
       "alt": "ネクロリバース card visual"
     },
     "gallery": [
       {
         "kind": "image",
-        "src": "/Sprite/NecroReverseSprite0.png",
+        "src": "/Sprite/games/NecroReverseSprite0.png",
         "alt": "ネクロリバース gameplay preview",
         "label": "Preview 00"
       },
       {
         "kind": "image",
-        "src": "/Sprite/NecroReverseSprite1.png",
+        "src": "/Sprite/games/NecroReverseSprite1.png",
         "alt": "ネクロリバース gameplay preview",
         "label": "Preview 01"
       },
       {
         "kind": "image",
-        "src": "/Sprite/NecroReverseSprite2.png",
+        "src": "/Sprite/games/NecroReverseSprite2.png",
         "alt": "ネクロリバース gameplay preview",
         "label": "Preview 02"
       },
       {
         "kind": "image",
-        "src": "/Sprite/NecroReverseSprite3.png",
+        "src": "/Sprite/games/NecroReverseSprite3.png",
         "alt": "ネクロリバース gameplay preview",
         "label": "Preview 03"
       }
     ],
-    "icon": "/Sprite/NecroReverseIcon1.png"
+    "icon": "/Sprite/games/NecroReverseIcon1.png"
   },
   "production": {
     "start": "2025-12-21",

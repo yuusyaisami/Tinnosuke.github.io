@@ -9,18 +9,18 @@
   },
   "media": {
     "card": {
-      "src": "/Sprite/MakiMakiSprite1.png",
+      "src": "/Sprite/games/MakiMakiSprite1.png",
       "alt": "MakiMaki Radio Talk! card visual"
     },
     "gallery": [
       {
         "kind": "image",
-        "src": "/Sprite/MakiMakiSprite1.png",
+        "src": "/Sprite/games/MakiMakiSprite1.png",
         "alt": "MakiMaki Radio Talk! gameplay preview",
         "label": "Preview 01"
       }
     ],
-    "icon": "/Sprite/MakiMakiIcon1.png"
+    "icon": "/Sprite/games/MakiMakiIcon1.png"
   },
   "production": {
     "start": "2025-08-04",

@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from "../config";
+import HeroDecor from "./HeroDecor.astro";
 import { getGroupedProjects } from "../utils/portfolio";
 import { withBase } from "../utils/url";
 
@@ -49,65 +50,76 @@ const primaryAnchor = games.length > 0 ? "#games" : "#other-projects";
 
 <section
   id="hero"
-  class="relative overflow-hidden border-b border-gray-200 bg-white dark:border-slate-800 dark:bg-slate-950"
+  class="relative overflow-hidden border-b border-slate-200/80 bg-white/90 dark:border-slate-800 dark:bg-slate-950"
   style={`--accent-color: ${siteConfig.accentColor}`}
 >
   <div
-    class="absolute inset-0 opacity-60 dark:opacity-25"
+    class="absolute inset-0 opacity-80 dark:opacity-40"
     aria-hidden="true"
-    style={`background: radial-gradient(circle at top left, ${siteConfig.accentColor}20 0%, transparent 42%)`}
+    style={`background: radial-gradient(circle at top left, ${siteConfig.accentColor}24 0%, transparent 44%), radial-gradient(circle at bottom right, ${siteConfig.accentColor}12 0%, transparent 32%)`}
   >
   </div>
-  <div class="relative mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
-    <div class="mx-auto flex max-w-3xl flex-col items-start">
-      {
-        titleImage && (
-          <img
-            class="w-full max-w-2xl rounded-3xl border border-slate-200 bg-white/80 object-cover shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
-            src={withBase(titleImage)}
-            alt={siteConfig.hero_title}
-          />
-        )
-      }
-
-      <div class="mt-8">
-        <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl dark:text-white">
-          {siteConfig.hero_title}
-        </h1>
-
-        <p class="mt-4 text-base leading-8 text-slate-600 sm:text-lg dark:text-slate-300">
-          {thanksMessage}
-        </p>
+  <div class="relative mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-18">
+    <div class="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] lg:items-center lg:gap-12">
+      <div class="relative flex flex-col items-start">
+        <div class="inline-flex items-center gap-3 rounded-full border border-slate-200/80 bg-white/80 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.26em] text-slate-500 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-900/75 dark:text-slate-300">
+          <span class="h-2 w-2 rounded-full" style={`background-color: ${siteConfig.accentColor}`}></span>
+          Indie Game Developer Portfolio
+        </div>
 
         {
-          socialLinks.length > 0 && (
-            <div class="mt-6 flex flex-wrap gap-3" aria-label="Social Links">
-              {socialLinks.map((link) => (
-                <a
-                  class="inline-flex items-center rounded-full border border-slate-200 px-4 py-2 text-sm text-slate-600 transition-colors hover:border-slate-300 hover:text-slate-950 dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-600 dark:hover:text-white"
-                  href={link.href}
-                  target={link.external ? "_blank" : undefined}
-                  rel={link.external ? "noopener noreferrer" : undefined}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
+          titleImage && (
+            <img
+              class="mt-6 w-full max-w-2xl rounded-[2rem] border border-slate-200/80 bg-white/80 object-cover shadow-[0_24px_80px_rgba(15,23,42,0.12)] dark:border-slate-800 dark:bg-slate-900/80"
+              src={withBase(titleImage)}
+              alt={siteConfig.hero_title}
+            />
           )
         }
 
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a
-            class="inline-flex min-h-11 items-center justify-center rounded-full px-5 text-sm font-semibold text-white shadow-sm"
-            href={primaryAnchor}
-            style={`background-color: ${siteConfig.accentColor}`}
-          >
-            View Projects
-          </a>
-          <a class="inline-flex min-h-11 items-center justify-center rounded-full border border-slate-300 bg-white px-5 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800" href={withBase("/about")}>
-            About Page
-          </a>
+        <div class="mt-8 max-w-2xl">
+          <h1 class="text-balance text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl dark:text-white">
+            {siteConfig.hero_title}
+          </h1>
+
+          <p class="mt-4 max-w-xl text-base leading-8 text-slate-600 sm:text-lg dark:text-slate-300">
+            {thanksMessage}
+          </p>
+
+          {
+            socialLinks.length > 0 && (
+              <div class="mt-6 flex flex-wrap gap-3" aria-label="Social Links">
+                {socialLinks.map((link) => (
+                  <a
+                    class="inline-flex items-center rounded-full border border-slate-200/80 bg-white/80 px-4 py-2 text-sm font-medium text-slate-600 shadow-sm transition-colors hover:border-slate-300 hover:text-slate-950 dark:border-slate-700 dark:bg-slate-900/75 dark:text-slate-300 dark:hover:border-slate-600 dark:hover:text-white"
+                    href={link.href}
+                    target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noopener noreferrer" : undefined}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            )
+          }
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a
+              class="inline-flex min-h-11 items-center justify-center rounded-full px-5 text-sm font-semibold text-white shadow-[0_16px_32px_rgba(29,78,216,0.24)] transition-transform hover:-translate-y-0.5"
+              href={primaryAnchor}
+              style={`background-color: ${siteConfig.accentColor}`}
+            >
+              View Projects
+            </a>
+            <a class="inline-flex min-h-11 items-center justify-center rounded-full border border-slate-300 bg-white/85 px-5 text-sm font-semibold text-slate-900 shadow-sm transition-colors hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900/75 dark:text-slate-100 dark:hover:bg-slate-800" href={withBase("/about")}>
+              About Page
+            </a>
+          </div>
         </div>
+      </div>
+
+      <div class="relative lg:justify-self-end lg:self-stretch lg:w-full lg:max-w-md">
+        <HeroDecor />
       </div>
     </div>
   </div>

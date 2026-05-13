@@ -9,18 +9,18 @@
   },
   "media": {
     "card": {
-      "src": "/Sprite/FoxTowerDefanceSprite1.png",
+      "src": "/Sprite/games/FoxTowerDefanceSprite1.png",
       "alt": "Fox towerDefense card visual"
     },
     "gallery": [
       {
         "kind": "image",
-        "src": "/Sprite/FoxTowerDefanceSprite1.png",
+        "src": "/Sprite/games/FoxTowerDefanceSprite1.png",
         "alt": "Fox towerDefense gameplay preview",
         "label": "Preview 01"
       }
     ],
-    "icon": "/Sprite/FoxTowerDefanceIcon1.png"
+    "icon": "/Sprite/games/FoxTowerDefanceIcon1.png"
   },
   "production": {
     "start": "2025-03-24",

@@ -9,18 +9,18 @@
   },
   "media": {
     "card": {
-      "src": "/Sprite/SyonenObakeSprite1.png",
+      "src": "/Sprite/games/SyonenObakeSprite1.png",
       "alt": "少年を施設から無事脱出させるゲーム card visual"
     },
     "gallery": [
       {
         "kind": "image",
-        "src": "/Sprite/SyonenObakeSprite1.png",
+        "src": "/Sprite/games/SyonenObakeSprite1.png",
         "alt": "少年を施設から無事脱出させるゲーム gameplay preview",
         "label": "Preview 01"
       }
     ],
-    "icon": "/Sprite/SyonenObakeIcon1.png"
+    "icon": "/Sprite/games/SyonenObakeIcon1.png"
   },
   "production": {
     "start": "2025-08-15",
