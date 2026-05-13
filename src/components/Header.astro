@@ -1,13 +1,15 @@
 ---
+import PixelSprite from "./PixelSprite.astro";
 import RandomSpriteIcon from "./RandomSpriteIcon.astro";
 import { siteConfig } from "../config";
+import { spriteIconAssets } from "../utils/iconSprites";
 import { withBase } from "../utils/url";
 
 const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/#games", label: "Games" },
-  { href: "/#other-projects", label: "Other Projects" },
+  { href: "/", label: "Home", icon: spriteIconAssets.king },
+  { href: "/about", label: "About", icon: spriteIconAssets.necoArc },
+  { href: "/#games", label: "Games", icon: spriteIconAssets.gameBoy },
+  { href: "/#other-projects", label: "Other Projects", icon: spriteIconAssets.hack },
 ];
 ---
 
@@ -36,9 +38,10 @@ const navItems = [
         {navItems.map((item) => (
           <li>
             <a
-              class="inline-flex min-h-10 items-center rounded-full px-4 py-2 text-slate-600 transition-all duration-200 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+              class="inline-flex min-h-10 items-center gap-2.5 rounded-full px-4 py-2 text-slate-600 transition-all duration-200 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
               href={withBase(item.href)}
             >
+              <PixelSprite sprite={item.icon} height={18} class="opacity-95" />
               {item.label}
             </a>
           </li>

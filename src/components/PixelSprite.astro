@@ -1,0 +1,143 @@
+---
+import type { SpriteAsset } from "../utils/iconSprites";
+import { withBase } from "../utils/url";
+
+const {
+  sprite,
+  height = 20,
+  alt = "",
+  decorative = true,
+  class: className = "",
+} = Astro.props as {
+  sprite: SpriteAsset;
+  height?: number;
+  alt?: string;
+  decorative?: boolean;
+  class?: string;
+};
+
+const spriteSrc = withBase(sprite.src);
+---
+
+{
+  sprite.kind === "image" ? (
+    <img
+      src={spriteSrc}
+      alt={decorative ? "" : alt || sprite.label}
+      class:list={["pixel-sprite pixel-sprite--image", className]}
+      style={`height: ${height}px; width: auto;`}
+      loading="eager"
+      decoding="async"
+      aria-hidden={decorative ? "true" : undefined}
+    />
+  ) : (
+    <span
+      class:list={["pixel-sprite pixel-sprite--sheet", className]}
+      style={`--pixel-target-height: ${height}px;`}
+      data-pixel-sheet
+      data-src={spriteSrc}
+      data-height={String(height)}
+      data-rows={String(sprite.rows)}
+      data-columns={String(sprite.columns)}
+      data-duration={String(sprite.frameDurationMs ?? 960)}
+      aria-hidden={decorative ? "true" : undefined}
+      role={decorative ? undefined : "img"}
+      aria-label={decorative ? undefined : alt || sprite.label}
+    ></span>
+  )
+}
+
+<script>
+  const pixelSheetNodes = document.querySelectorAll("[data-pixel-sheet]");
+
+  for (const pixelSheet of pixelSheetNodes) {
+    if (pixelSheet.dataset.ready === "true") {
+      continue;
+    }
+
+    pixelSheet.dataset.ready = "true";
+
+    const src = pixelSheet.dataset.src;
+    const targetHeight = Number.parseFloat(pixelSheet.dataset.height ?? "20");
+    const rows = Math.max(1, Number.parseInt(pixelSheet.dataset.rows ?? "1", 10));
+    const columns = Math.max(1, Number.parseInt(pixelSheet.dataset.columns ?? "1", 10));
+    const duration = Math.max(1, Number.parseInt(pixelSheet.dataset.duration ?? "960", 10));
+
+    if (!src || !Number.isFinite(targetHeight)) {
+      continue;
+    }
+
+    const image = new Image();
+
+    const renderSheet = () => {
+      if (!image.naturalWidth || !image.naturalHeight) {
+        return;
+      }
+
+      const frameWidth = image.naturalWidth / columns;
+      const frameHeight = image.naturalHeight / rows;
+      const displayWidth = frameWidth * (targetHeight / frameHeight);
+      const displayHeight = targetHeight * rows;
+      const frame = document.createElement("span");
+
+      frame.className = "pixel-sprite__sheet-frame";
+      frame.style.width = `${displayWidth}px`;
+      frame.style.height = `${targetHeight}px`;
+      frame.style.backgroundImage = `url(${src})`;
+      frame.style.backgroundRepeat = "no-repeat";
+      frame.style.backgroundSize = `${displayWidth * columns}px ${displayHeight}px`;
+      frame.style.animation = `pixel-sprite-sheet ${duration}ms steps(${columns}) infinite`;
+
+      pixelSheet.replaceChildren(frame);
+    };
+
+    image.addEventListener("load", renderSheet, { once: true });
+    image.src = src;
+
+    if (image.complete) {
+      renderSheet();
+    }
+  }
+</script>
+
+<style>
+  .pixel-sprite {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+  }
+
+  .pixel-sprite--image,
+  .pixel-sprite--sheet,
+  .pixel-sprite__sheet-frame {
+    image-rendering: pixelated;
+  }
+
+  .pixel-sprite--sheet {
+    min-width: var(--pixel-target-height);
+    min-height: var(--pixel-target-height);
+  }
+
+  .pixel-sprite__sheet-frame {
+    display: inline-block;
+    background-position: left top;
+  }
+
+  @keyframes pixel-sprite-sheet {
+    from {
+      background-position: 0 0;
+    }
+
+    to {
+      background-position: 100% 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pixel-sprite__sheet-frame {
+      animation: none !important;
+    }
+  }
+</style>
