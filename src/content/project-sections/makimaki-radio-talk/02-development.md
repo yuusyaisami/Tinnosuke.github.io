@@ -3,7 +3,7 @@ project: makimaki-radio-talk
 key: development
 title: Development
 order: 20
-lede: UI Toolkit を使って会話中心の UI を組み立てることが、このプロジェクトの開発テーマでした。
+lede: 会話の流れをどのように作るかがカギでした。
 ---
 
 ## UI 実装
@@ -19,8 +19,8 @@ lede: UI Toolkit を使って会話中心の UI を組み立てることが、�
 会話データは ScriptableObject で管理しています。
 各会話要素には、表示する文章、話しているキャラクター、カメラ位置、テキストの再生速度などを設定できるようにしました。
 
-また、一部の処理は Interface を使って拡張できる形にしています。
-これにより、ScriptableObject に定義した基本的な会話進行だけでなく、特定の場面だけで追加処理を実行できるようにしました。
+また、一部の処理は 基底クラスのScriptableObject を使って拡張できる形にしています。
+これにより、会話用のScriptableObject に定義した基本的な会話進行だけでなく、特定の場面だけで追加処理を実行できるようにしました。
 
 一週間での制作だったため、全体の構成は複雑にしすぎず、Singleton の Manager クラスを中心に管理するシンプルな作りにしています。
 
