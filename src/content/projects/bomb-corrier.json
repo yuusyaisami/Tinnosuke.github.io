@@ -1,0 +1,65 @@
+{
+  "slug": "bomb-corrier",
+  "name": "BombCorrier",
+  "summary": "",
+  "category": "game",
+  "skills": [],
+  "links": {},
+  "media": {
+    "card": {
+      "src": "/Sprite/games/BombCorrierSprite1.png",
+      "alt": "BombCorrier card visual"
+    },
+    "gallery": [
+      {
+        "kind": "image",
+        "src": "/Sprite/games/BombCorrierSprite1.png",
+        "alt": "BombCorrier gameplay preview",
+        "label": "Preview 00"
+      },
+      {
+        "kind": "image",
+        "src": "/Sprite/games/BombCorrierSprite2.png",
+        "alt": "BombCorrier gameplay preview",
+        "label": "Preview 01"
+      },
+      {
+        "kind": "image",
+        "src": "/Sprite/games/BombCorrierSprite3.png",
+        "alt": "BombCorrier gameplay preview",
+        "label": "Preview 02"
+      },
+      {
+        "kind": "image",
+        "src": "/Sprite/games/BombCorrierSprite4.png",
+        "alt": "BombCorrier gameplay preview",
+        "label": "Preview 03"
+      },
+      {
+        "kind": "image",
+        "src": "/Sprite/games/BombCorrierSprite5.png",
+        "alt": "BombCorrier gameplay preview",
+        "label": "Preview 04"
+      },
+      {
+        "kind": "image",
+        "src": "/Sprite/games/BombCorrierSprite6.png",
+        "alt": "BombCorrier gameplay preview",
+        "label": "Preview 05"
+      },
+      {
+        "kind": "image",
+        "src": "/Sprite/games/BombCorrierSprite7.png",
+        "alt": "BombCorrier gameplay preview",
+        "label": "Preview 06"
+      }
+    ],
+    "icon": "/Sprite/games/BombCorrierIcon1.png"
+  },
+  "production": {
+    "start": "2026-05-08",
+    "end": "2026-06-08"
+  },
+  "status": "in-progress",
+  "featured": false
+}
