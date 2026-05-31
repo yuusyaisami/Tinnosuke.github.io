@@ -18,6 +18,12 @@
         "label": "Preview 00"
       },
       {
+        "kind": "video",
+        "src": "/Video/Games/BombCorrierVideo1.mp4",
+        "alt": "BombCorrier gameplay video",
+        "label": "Preview Video"
+      },
+      {
         "kind": "image",
         "src": "/Sprite/games/BombCorrierSprite2.png",
         "alt": "BombCorrier gameplay preview",
